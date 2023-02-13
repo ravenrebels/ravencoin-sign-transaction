@@ -1,0 +1,65 @@
+{
+  "txid": "5e227357cd81897552032cf6971f64f523d5eee800807e14517f2e23e8dc80c0",
+  "hash": "5e227357cd81897552032cf6971f64f523d5eee800807e14517f2e23e8dc80c0",
+  "version": 2,
+  "size": 236,
+  "vsize": 236,
+  "locktime": 0,
+  "vin": [
+    {
+      "txid": "fd9ac39bbb12dc8fafed9f2293fcc5fd8034ddb577cba8075e4db82b918ed2d3",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "sequence": 4294967295
+    },
+    {
+      "txid": "fe66f5c19b6231e4f7ff515b9c5b1c3659d25c573588cdb10d02f87d6cae7038",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "sequence": 4294967295
+    },
+    {
+      "txid": "6c1295e85c800be3e90ced4d7eb3e9debb7d1ebc286eed1fd2e0f9e075bcd4a3",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "sequence": 4294967295
+    }
+  ],
+  "vout": [
+    {
+      "value": 0.0,
+      "n": 0,
+      "scriptPubKey": {
+        "asm": "OP_DUP OP_HASH160 8fe639e8e097fa8ee85ae35e6881f66bdf21dc8b OP_EQUALVERIFY OP_CHECKSIG OP_RVN_ASSET 2072766e74134652454e2f43454e5452414c495a4154494f4e00e1f5050000000075",
+        "hex": "76a9148fe639e8e097fa8ee85ae35e6881f66bdf21dc8b88acc02072766e74134652454e2f43454e5452414c495a4154494f4e00e1f5050000000075",
+        "reqSigs": 1,
+        "type": "transfer_asset",
+        "asset": {
+          "name": "FREN/CENTRALIZATION",
+          "amount": 1.0
+        },
+        "addresses": ["RNQ4WLyq6nCLPJkGBetrZi3Wr8JstKWecN"]
+      }
+    },
+    {
+      "value": 1.48,
+      "n": 1,
+      "scriptPubKey": {
+        "asm": "OP_DUP OP_HASH160 c6a0e8557c7567a4d9cc84574c34fbb62ece3c96 OP_EQUALVERIFY OP_CHECKSIG",
+        "hex": "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
+        "reqSigs": 1,
+        "type": "pubkeyhash",
+        "addresses": ["RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi"]
+      }
+    }
+  ]
+}
