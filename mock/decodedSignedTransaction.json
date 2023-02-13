@@ -1,65 +1,60 @@
 {
-  "txid": "9bee5697fa8f3d49869d9328ccc59a8834d04b6bb86e917ce1925434315a02f8",
-  "hash": "9bee5697fa8f3d49869d9328ccc59a8834d04b6bb86e917ce1925434315a02f8",
-  "version": 2,
-  "size": 555,
-  "vsize": 555,
-  "locktime": 0,
-  "vin": [
-    {
-      "txid": "fd9ac39bbb12dc8fafed9f2293fcc5fd8034ddb577cba8075e4db82b918ed2d3",
-      "vout": 0,
-      "scriptSig": {
-        "asm": "3045022100cde2884361bee9ac5980d7977384fd5b0a58175544a5ce213e52503b63091a6d02206929d9779df9aa17271e1d4fc268e4475836926286e4673d5b8f3d1d081b7a1e[ALL] 03d1dfe0e4e9eeabd73824b96bc1d464b38b7ea45ad27770625287c1e683588e96",
-        "hex": "483045022100cde2884361bee9ac5980d7977384fd5b0a58175544a5ce213e52503b63091a6d02206929d9779df9aa17271e1d4fc268e4475836926286e4673d5b8f3d1d081b7a1e012103d1dfe0e4e9eeabd73824b96bc1d464b38b7ea45ad27770625287c1e683588e96"
-      },
-      "sequence": 4294967295
-    },
-    {
-      "txid": "fe66f5c19b6231e4f7ff515b9c5b1c3659d25c573588cdb10d02f87d6cae7038",
-      "vout": 0,
-      "scriptSig": {
-        "asm": "304402201bfc7e7982f8d1b35bc277a54a471c986a1a352f3789de17f17bd134036570b60220757c3afe43ea73a830a77e80f332d1076de2e2d93bd67655f9bf0dfe7dc011a2[ALL] 0290ca666d1ff6f106973162465d969111a0a9ff5f33aa458766ec27c9bde4c7e6",
-        "hex": "47304402201bfc7e7982f8d1b35bc277a54a471c986a1a352f3789de17f17bd134036570b60220757c3afe43ea73a830a77e80f332d1076de2e2d93bd67655f9bf0dfe7dc011a201210290ca666d1ff6f106973162465d969111a0a9ff5f33aa458766ec27c9bde4c7e6"
-      },
-      "sequence": 4294967295
-    },
-    {
-      "txid": "6c1295e85c800be3e90ced4d7eb3e9debb7d1ebc286eed1fd2e0f9e075bcd4a3",
-      "vout": 0,
-      "scriptSig": {
-        "asm": "304402200225d8146af4c0417dd9fd83beba18692dd1d9e498a485227bd42e38ecd3c3d102207f593772665370f44bb5d0299e24cbc25bce4a2bbf058bf329d245011037249c[ALL] 03d1dfe0e4e9eeabd73824b96bc1d464b38b7ea45ad27770625287c1e683588e96",
-        "hex": "47304402200225d8146af4c0417dd9fd83beba18692dd1d9e498a485227bd42e38ecd3c3d102207f593772665370f44bb5d0299e24cbc25bce4a2bbf058bf329d245011037249c012103d1dfe0e4e9eeabd73824b96bc1d464b38b7ea45ad27770625287c1e683588e96"
-      },
-      "sequence": 4294967295
-    }
-  ],
-  "vout": [
-    {
-      "value": 0.0,
-      "n": 0,
-      "scriptPubKey": {
-        "asm": "OP_DUP OP_HASH160 8fe639e8e097fa8ee85ae35e6881f66bdf21dc8b OP_EQUALVERIFY OP_CHECKSIG OP_RVN_ASSET 2072766e74134652454e2f43454e5452414c495a4154494f4e00e1f5050000000075",
-        "hex": "76a9148fe639e8e097fa8ee85ae35e6881f66bdf21dc8b88acc02072766e74134652454e2f43454e5452414c495a4154494f4e00e1f5050000000075",
-        "reqSigs": 1,
-        "type": "transfer_asset",
-        "asset": {
-          "name": "FREN/CENTRALIZATION",
-          "amount": 1.0
+    "txid": "4a67bb2f3f05c8bad02edbc0d21db3d2cd7a29c857409c6ce4fe2366aa67bad2",
+    "hash": "4a67bb2f3f05c8bad02edbc0d21db3d2cd7a29c857409c6ce4fe2366aa67bad2",
+    "version": 2,
+    "size": 407,
+    "vsize": 407,
+    "locktime": 0,
+    "vin": [
+        {
+            "txid": "de71e758a0fb99b744727d92223aa31347ccacbbdee336ea3f4d228575f08f06",
+            "vout": 1,
+            "scriptSig": {
+                "asm": "304402204bacb12bb11d4b2cb37da804c7943b0b8b91298ef590dfdc3496d12837de2835022019d469980e6133965fe149672059d7de69f50a547b1a2c005b6a12c9ab51ae9a[ALL] 02cbfd16a837dc1898122611ee8f50498e1ab0c29e76708fec4c73a6d6ce1981a8",
+                "hex": "47304402204bacb12bb11d4b2cb37da804c7943b0b8b91298ef590dfdc3496d12837de2835022019d469980e6133965fe149672059d7de69f50a547b1a2c005b6a12c9ab51ae9a012102cbfd16a837dc1898122611ee8f50498e1ab0c29e76708fec4c73a6d6ce1981a8"
+            },
+            "sequence": 4294967295
         },
-        "addresses": ["RNQ4WLyq6nCLPJkGBetrZi3Wr8JstKWecN"]
-      }
-    },
-    {
-      "value": 1.48,
-      "n": 1,
-      "scriptPubKey": {
-        "asm": "OP_DUP OP_HASH160 c6a0e8557c7567a4d9cc84574c34fbb62ece3c96 OP_EQUALVERIFY OP_CHECKSIG",
-        "hex": "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
-        "reqSigs": 1,
-        "type": "pubkeyhash",
-        "addresses": ["RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi"]
-      }
-    }
-  ]
+        {
+            "txid": "de71e758a0fb99b744727d92223aa31347ccacbbdee336ea3f4d228575f08f06",
+            "vout": 0,
+            "scriptSig": {
+                "asm": "30440220108cd28fd0bca8b1f3d90a98678bea3b7d43a4c374915325dcc464a187a7e53a0220643edf04478bd1a9bdc9a2e5838f4a47feb70890d77871c14237f475e4a6830e[ALL] 03f9433770f11cd18880c758a390b61fb2da3230ea0ba181da038020401dc957bb",
+                "hex": "4730440220108cd28fd0bca8b1f3d90a98678bea3b7d43a4c374915325dcc464a187a7e53a0220643edf04478bd1a9bdc9a2e5838f4a47feb70890d77871c14237f475e4a6830e012103f9433770f11cd18880c758a390b61fb2da3230ea0ba181da038020401dc957bb"
+            },
+            "sequence": 4294967295
+        }
+    ],
+    "vout": [
+        {
+            "value": 0,
+            "n": 0,
+            "scriptPubKey": {
+                "asm": "OP_DUP OP_HASH160 723f93d0ffae8fd8f40f2ff37481c8dd8c659424 OP_EQUALVERIFY OP_CHECKSIG OP_RVN_ASSET 2072766e74134652454e2f43454e5452414c495a4154494f4e00e1f5050000000075",
+                "hex": "76a914723f93d0ffae8fd8f40f2ff37481c8dd8c65942488acc02072766e74134652454e2f43454e5452414c495a4154494f4e00e1f5050000000075",
+                "reqSigs": 1,
+                "type": "transfer_asset",
+                "asset": {
+                    "name": "FREN/CENTRALIZATION",
+                    "amount": 1
+                },
+                "addresses": [
+                    "RKhHGpYJqkf8G2iuEfAr7rmHuCLKrw7tAS"
+                ]
+            }
+        },
+        {
+            "value": 1.38,
+            "n": 1,
+            "scriptPubKey": {
+                "asm": "OP_DUP OP_HASH160 c6a0e8557c7567a4d9cc84574c34fbb62ece3c96 OP_EQUALVERIFY OP_CHECKSIG",
+                "hex": "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
+                "reqSigs": 1,
+                "type": "pubkeyhash",
+                "addresses": [
+                    "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi"
+                ]
+            }
+        }
+    ]
 }
