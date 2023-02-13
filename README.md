@@ -9,6 +9,8 @@ The sole purpose of this project is to enable us to
 bitcore-lib cant sign a unsigned transaction from Ravencoin as is.
 Why? Because bitcore-lib needs more information about the UTXOs. Not a big problem but important.
 
+Can this code be used?
+https://github.com/bitpay/bitcore-lib/blob/master/lib/script/script.js
 
 ## What we need
 
