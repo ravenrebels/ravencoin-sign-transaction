@@ -7,6 +7,7 @@ The sole purpose of this project is to enable us to
 ## What we need
 
 We need code that can take the UNSIGNED transaction, and sign it using the private keys.
+This transaction transfers one FREN/CIVILAZATION asset/token and pays fees in RVN.
 
 [decoded UNSIGNED transaction](./mock/decodedUnsignedTransaction.json)
 
