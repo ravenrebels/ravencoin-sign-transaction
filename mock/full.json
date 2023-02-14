@@ -1,66 +1,66 @@
 {
-  "transactionId": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
-  "debug": {
-      "unspentRVNAmount": "1,3",
-      "rvnUTXOs": [
-          {
-              "address": "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi",
-              "assetName": "RVN",
-              "txid": "106cef5f7ad695559268b42c21b8e3a805b425e4826e560e146f8eeb10d01a38",
-              "outputIndex": 2,
-              "script": "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
-              "satoshis": 130000000,
-              "height": 2669476
-          }
-      ],
-      "assetUTXOs": [
-          {
-              "address": "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ",
-              "assetName": "FREN/YULETIDE2021",
-              "txid": "106cef5f7ad695559268b42c21b8e3a805b425e4826e560e146f8eeb10d01a38",
-              "outputIndex": 1,
-              "script": "76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231006189e21400000075",
-              "satoshis": 89700000000,
-              "height": 2669476
-          }
-      ],
-      "assetName": "FREN/YULETIDE2021",
-      "fee": 0.02,
-      "rvnAmount": 0,
-      "rvnChangeAmount": 1.28,
-      "inputs": [
-          {
-              "txid": "106cef5f7ad695559268b42c21b8e3a805b425e4826e560e146f8eeb10d01a38",
-              "vout": 2,
-              "address": "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi"
-          },
-          {
-              "txid": "106cef5f7ad695559268b42c21b8e3a805b425e4826e560e146f8eeb10d01a38",
-              "vout": 1,
-              "address": "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ"
-          }
-      ],
-      "outputs": {
-          "RGXZAhZEh3ff9TD5P23Eaf7uEMYbsfFrqk": {
-              "transfer": {
-                  "FREN/YULETIDE2021": 1
-              }
-          },
-          "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ": {
-              "transfer": {
-                  "FREN/YULETIDE2021": 896
-              }
-          },
-          "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": 1.28
-      },
-      "rawUnsignedTransaction": "0200000002381ad010eb8e6f140e566e82e425b405a8e3b8212cb468925595d67a5fef6c100200000000ffffffff381ad010eb8e6f140e566e82e425b405a8e3b8212cb468925595d67a5fef6c100100000000ffffffff0300000000000000003a76a9144f804ef8754e2b5d9471cc29d62f60f5ca23fe2588acc01e72766e74114652454e2f59554c45544944453230323100e1f505000000007500000000000000003a76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231008093dc14000000750020a107000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
-      "privateKeys": {
-          "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": "L2GD7txjmdKSTy7mBq2FowZusjdWP679ttWSRfj4eLBu2usTWMV9",
-          "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ": "KwjZ8wGJA4PLyue19oXusicyjt9u3R6w78w4eLeRGWtQoTHgBgKe"
-      },
-      "signedTransaction": {
-          "hex": "0200000002381ad010eb8e6f140e566e82e425b405a8e3b8212cb468925595d67a5fef6c10020000006a4730440220090c3a1b91bd2c1ee76a7cbcf112a66362c037a7057dd363cabfb88cbf446a9a02202492845b4eb3af0c5399f753e0917b0546699974709054823463795462d03ea1012102cbfd16a837dc1898122611ee8f50498e1ab0c29e76708fec4c73a6d6ce1981a8ffffffff381ad010eb8e6f140e566e82e425b405a8e3b8212cb468925595d67a5fef6c10010000006a47304402200e4c40a3ceeb1103b70573c47351721056db5faef4ba8a9de2d3aa2f48cb7024022067e6ae2652e547449d11ba74b6bfdfc61edd38a86f5a6df219ee5d7ae4dc48ce01210325e3ecf8b6bd816e717ad5b5ed01fbd5522d4a3bd162a95d69bcc5050d8f4e8effffffff0300000000000000003a76a9144f804ef8754e2b5d9471cc29d62f60f5ca23fe2588acc01e72766e74114652454e2f59554c45544944453230323100e1f505000000007500000000000000003a76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231008093dc14000000750020a107000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
-          "complete": true
-      }
-  }
+    "transactionId": "161c0e9abcebc4c4d285f1fd727552a43fdcc924aff30c8cc1b037649802f7c1",
+    "debug": {
+        "unspentRVNAmount": "1,28",
+        "rvnUTXOs": [
+            {
+                "address": "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi",
+                "assetName": "RVN",
+                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
+                "outputIndex": 2,
+                "script": "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
+                "satoshis": 128000000,
+                "height": 2669478
+            }
+        ],
+        "assetUTXOs": [
+            {
+                "address": "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ",
+                "assetName": "FREN/YULETIDE2021",
+                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
+                "outputIndex": 1,
+                "script": "76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231008093dc1400000075",
+                "satoshis": 89600000000,
+                "height": 2669478
+            }
+        ],
+        "assetName": "FREN/YULETIDE2021",
+        "fee": 0.02,
+        "rvnAmount": 0,
+        "rvnChangeAmount": 1.26,
+        "inputs": [
+            {
+                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
+                "vout": 2,
+                "address": "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi"
+            },
+            {
+                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
+                "vout": 1,
+                "address": "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ"
+            }
+        ],
+        "outputs": {
+            "RR3pAgPvL7FqJetRbGb64jMu5ddTh7htZx": {
+                "transfer": {
+                    "FREN/YULETIDE2021": 1
+                }
+            },
+            "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ": {
+                "transfer": {
+                    "FREN/YULETIDE2021": 895
+                }
+            },
+            "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": 1.26
+        },
+        "rawUnsignedTransaction": "02000000024b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e9230200000000ffffffff4b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e9230100000000ffffffff0300000000000000003a76a914acfa508f215aa367e6122afb41d0fb7853428b4f88acc01e72766e74114652454e2f59554c45544944453230323100e1f505000000007500000000000000003a76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231009f9dd61400000075809b8207000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
+        "privateKeys": {
+            "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": "L2GD7txjmdKSTy7mBq2FowZusjdWP679ttWSRfj4eLBu2usTWMV9",
+            "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ": "KwjZ8wGJA4PLyue19oXusicyjt9u3R6w78w4eLeRGWtQoTHgBgKe"
+        },
+        "signedTransaction": {
+            "hex": "02000000024b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e923020000006b483045022100864c09fafe5ad97299796696935bec7204569e71aa33146ed5cdbe3c9aefe779022062b57b689b2119396f58c1c8e6558f72b4744a1a59a8657d12126ca3ae4c8901012102cbfd16a837dc1898122611ee8f50498e1ab0c29e76708fec4c73a6d6ce1981a8ffffffff4b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e923010000006a4730440220133eb6c680264aba76390362cbb2d1d0b27bbbc34154d136938f36ed94d0df6d02207e85249f998b2bd52daa6dae94bc9b4bc418ec39d6f05fa56fe417c1906af02501210325e3ecf8b6bd816e717ad5b5ed01fbd5522d4a3bd162a95d69bcc5050d8f4e8effffffff0300000000000000003a76a914acfa508f215aa367e6122afb41d0fb7853428b4f88acc01e72766e74114652454e2f59554c45544944453230323100e1f505000000007500000000000000003a76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231009f9dd61400000075809b8207000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
+            "complete": true
+        }
+    }
 }
