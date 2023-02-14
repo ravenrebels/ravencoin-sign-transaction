@@ -1,65 +1,60 @@
 {
-    "transactionId": "161c0e9abcebc4c4d285f1fd727552a43fdcc924aff30c8cc1b037649802f7c1",
+    "transactionId": "undefined",
     "debug": {
-        "unspentRVNAmount": "1,28",
+        "unspentRVNAmount": "1,22",
         "rvnUTXOs": [
             {
                 "address": "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi",
                 "assetName": "RVN",
-                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
+                "txid": "1cd17de0a43868f32e8c21b8c16e3b07dee36781ea1e234928594b1820fe6cfe",
                 "outputIndex": 2,
                 "script": "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
-                "satoshis": 128000000,
-                "height": 2669478
+                "satoshis": 122000000,
+                "height": 2670673
             }
         ],
         "assetUTXOs": [
             {
-                "address": "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ",
+                "address": "RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn",
                 "assetName": "FREN/YULETIDE2021",
-                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
-                "outputIndex": 1,
-                "script": "76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231008093dc1400000075",
-                "satoshis": 89600000000,
-                "height": 2669478
+                "txid": "9519e2485a048b671bd038788d7733d9d36b70acc039ea081725145b822bc328",
+                "outputIndex": 0,
+                "script": "76a914c1536f46fa2fa04be210406529be283c1c85e4ce88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075",
+                "satoshis": 100000000,
+                "height": 2670669
             }
         ],
         "assetName": "FREN/YULETIDE2021",
         "fee": 0.02,
         "rvnAmount": 0,
-        "rvnChangeAmount": 1.26,
+        "rvnChangeAmount": 1.2,
         "inputs": [
             {
-                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
+                "txid": "1cd17de0a43868f32e8c21b8c16e3b07dee36781ea1e234928594b1820fe6cfe",
                 "vout": 2,
                 "address": "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi"
             },
             {
-                "txid": "23e9b4a4c4c404e17f2bd8ee511a34c38b59dc8e321bb45491d28b24fea4414b",
-                "vout": 1,
-                "address": "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ"
+                "txid": "9519e2485a048b671bd038788d7733d9d36b70acc039ea081725145b822bc328",
+                "vout": 0,
+                "address": "RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn"
             }
         ],
         "outputs": {
-            "RR3pAgPvL7FqJetRbGb64jMu5ddTh7htZx": {
+            "RBHYWP8NWYpaJNVj1sX3w8iNbHXuTa766z": {
                 "transfer": {
                     "FREN/YULETIDE2021": 1
                 }
             },
-            "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ": {
-                "transfer": {
-                    "FREN/YULETIDE2021": 895
-                }
-            },
-            "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": 1.26
+            "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": 1.2
         },
-        "rawUnsignedTransaction": "02000000024b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e9230200000000ffffffff4b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e9230100000000ffffffff0300000000000000003a76a914acfa508f215aa367e6122afb41d0fb7853428b4f88acc01e72766e74114652454e2f59554c45544944453230323100e1f505000000007500000000000000003a76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231009f9dd61400000075809b8207000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
+        "rawUnsignedTransaction": "0200000002fe6cfe20184b592849231eea8167e3de073b6ec1b8218c2ef36838a4e07dd11c0200000000ffffffff28c32b825b14251708ea39c0ac706bd3d933778d7838d01b678b045a48e219950000000000ffffffff0200000000000000003a76a91416014dfb02a07417cbf8c0366ee5ae0a29d5878f88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075000e2707000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
         "privateKeys": {
             "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi": "L2GD7txjmdKSTy7mBq2FowZusjdWP679ttWSRfj4eLBu2usTWMV9",
-            "RDRo7r5fMDhUSJ7HQcdgzfruQGSviYcfbQ": "KwjZ8wGJA4PLyue19oXusicyjt9u3R6w78w4eLeRGWtQoTHgBgKe"
+            "RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn": "Kxj2xMvLbcXeGzuSrZLtpnZWzXnTXnhtuCQRQhKLjN7bSQXuakyh"
         },
         "signedTransaction": {
-            "hex": "02000000024b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e923020000006b483045022100864c09fafe5ad97299796696935bec7204569e71aa33146ed5cdbe3c9aefe779022062b57b689b2119396f58c1c8e6558f72b4744a1a59a8657d12126ca3ae4c8901012102cbfd16a837dc1898122611ee8f50498e1ab0c29e76708fec4c73a6d6ce1981a8ffffffff4b41a4fe248bd29154b41b328edc598bc3341a51eed82b7fe104c4c4a4b4e923010000006a4730440220133eb6c680264aba76390362cbb2d1d0b27bbbc34154d136938f36ed94d0df6d02207e85249f998b2bd52daa6dae94bc9b4bc418ec39d6f05fa56fe417c1906af02501210325e3ecf8b6bd816e717ad5b5ed01fbd5522d4a3bd162a95d69bcc5050d8f4e8effffffff0300000000000000003a76a914acfa508f215aa367e6122afb41d0fb7853428b4f88acc01e72766e74114652454e2f59554c45544944453230323100e1f505000000007500000000000000003a76a9142d8114b645c74ea182734865fc5ad995a88e8a9d88acc01e72766e74114652454e2f59554c455449444532303231009f9dd61400000075809b8207000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
+            "hex": "0200000002fe6cfe20184b592849231eea8167e3de073b6ec1b8218c2ef36838a4e07dd11c020000006a47304402207a3baf158dee32d24dd507f26d67aec2a011bbd64e40f195b651aa3c0f02181a0220020520a50e1fdc0b71531f3902c5decd814c857c67656a715e2448dc9a823b28012102cbfd16a837dc1898122611ee8f50498e1ab0c29e76708fec4c73a6d6ce1981a8ffffffff28c32b825b14251708ea39c0ac706bd3d933778d7838d01b678b045a48e21995000000006b48304502210098e082ff4e5a23b6127a26f11d142e7258ba05afcfbd0deede7e736dd7f34d4902201200aa8aa95fd0b82b35dbd991004ca614ad952c908680b4f3adabce9b01076d012102f933cc09843db56ab4a78bdb501831afcbc29a2a615c906ec2de8697d10a6c45ffffffff0200000000000000003a76a91416014dfb02a07417cbf8c0366ee5ae0a29d5878f88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075000e2707000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000",
             "complete": true
         }
     }
