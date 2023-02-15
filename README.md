@@ -19,9 +19,7 @@ The sign method has three arguments
 
 returns a signed transaction (hex), after that it is up to you to publish it on the network
 ```
-import pkg from 'ravencoin-sign-transaction';
-const {sign} = pkg;
-
+import Signer from "@ravenrebels/ravencoin-sign-transaction";
 
 const raw =
   "0200000002fe6cfe20184b592849231eea8167e3de073b6ec1b8218c2ef36838a4e07dd11c0200000000ffffffff28c32b825b14251708ea39c0ac706bd3d933778d7838d01b678b045a48e219950000000000ffffffff0200000000000000003a76a91416014dfb02a07417cbf8c0366ee5ae0a29d5878f88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075000e2707000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000";
@@ -52,8 +50,9 @@ const privateKeys = {
   RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn:
     "Kxj2xMvLbcXeGzuSrZLtpnZWzXnTXnhtuCQRQhKLjN7bSQXuakyh",
 };
-const signed = sign(raw, UTXOs, privateKeys);
+const signed = Signer.sign(raw, UTXOs, privateKeys);
 console.log(signed);
+
 
 ```
 
