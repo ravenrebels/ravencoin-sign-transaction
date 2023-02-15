@@ -34,7 +34,9 @@ To sign a transaction, inputs and outputs are not enough, we need the UTXOs used
 
 bitcoinjs-lib cant sign an unsigned transaction from Ravencoin out of the box because 
 of this line in transaction_builder.js
+
 `const prevOutScript = payments.p2pkh({ pubkey: ourPubKey }).output;`
+
 That is, transaction_builder assumes that the previous outputscript was "just" our pub key/address, that is not true in the case of Ravencoin asset transfer transactions.
 
 ## Stuff to look at
