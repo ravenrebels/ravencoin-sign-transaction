@@ -10,8 +10,7 @@ const UTXOs = full.rvnUTXOs.concat(full.assetUTXOs);
 const txHex = full.rawUnsignedTransaction;
 const tx = bitcoin.Transaction.fromHex(txHex);
 
-const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN, UTXOs);
-txb.UTXOs = UTXOs;
+const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
 
 function getUTXO(transactionId, index) {
   return UTXOs.find((utxo) => {
@@ -19,9 +18,15 @@ function getUTXO(transactionId, index) {
   });
 }
 for (let i = 0; i < tx.ins.length; i++) {
-  const address = full.inputs[i].address;
-  const keyPair = getKeyPairByAddress(address);
+  const input = tx.ins[i];
+
+  const txId = Buffer.from(input.hash, "hex").reverse().toString("hex");
   const utxo = getUTXO(full.inputs[i].txid, full.inputs[i].vout);
+
+  const address = utxo.address;
+  console.log(address);
+
+  const keyPair = getKeyPairByAddress(address);
 
   const signParams = {
     prevOutScriptType: "p2pkh",
