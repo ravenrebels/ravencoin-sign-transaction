@@ -12,6 +12,12 @@ Transaction Builder.
 
 ##How to use
 
+The sign method has three arguments
+1) The raw transaction (in hex)
+2) An array of UTXO objects to use
+3) Private keys. An object with "address" as key and "WIF" as value
+
+returns a signed transaction (hex), after that it is up to you to publish it on the network
 ```
 import pkg from 'ravencoin-sign-transaction';
 const {sign} = pkg;
