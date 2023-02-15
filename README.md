@@ -28,11 +28,11 @@ This transaction transfers one FREN/CIVILAZATION asset/token and pays fees in RV
 
 ## Important stuff learned
 
-Signing a transaction means, sign the inputs to the transaction and sign the whole transaction.
+- Signing a transaction means, sign the inputs to the transaction and sign the whole transaction.
 
-To sign a transaction, inputs and outputs are not enough, we need the UTXOs used (to get each utxo.script)
+- To sign a transaction, inputs and outputs are not enough, we need the UTXOs used (to get each utxo.script)
 
-bitcoinjs-lib cant sign an unsigned transaction from Ravencoin out of the box because 
+- bitcoinjs-lib cant sign an unsigned transaction from Ravencoin out of the box because 
 of this line in transaction_builder.js
 
 `const prevOutScript = payments.p2pkh({ pubkey: ourPubKey }).output;`
