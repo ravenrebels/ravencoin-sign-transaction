@@ -1,7 +1,7 @@
 {
-  "name": "ravencoin-sign-transaction",
+  "name": "@ravenrebels/ravencoin-sign-transaction",
   "description": "Signs a Ravencoin transaction",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "source":"index.ts",
   "main": "dist/index.cjs",
   "module":"dist/index.mjs",
@@ -14,9 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/ravenrebels/ravencoin-sign-transaction.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["ravencoin"],
+  "author": "Raven Rebels - Dick Henrik Larsson",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ravenrebels/ravencoin-sign-transaction/issues"
   },
