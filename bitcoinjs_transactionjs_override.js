@@ -1031,7 +1031,7 @@ function getSigningData(
       input.value = witnessValue;
     }
     if (!canSign(input)) {
-      console.log("NU ska vi preppa input och trans finns?", !!tx);
+ 
       const prepared = prepareInput(
         input,
         ourPubKey,
