@@ -10,7 +10,7 @@ The sole purpose of this project is to enable us to
 We are able to sign Ravencoin asset transfers using bitcoinjs-lib version 5.2 with a patched
 Transaction Builder.
 
-##How to use
+## How to use
 
 The sign method has three arguments
 1) The raw transaction (in hex)
