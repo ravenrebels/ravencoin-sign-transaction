@@ -1,44 +1,52 @@
 const bitcoin = require("bitcoinjs-lib");
 const coininfo = require("coininfo");
+
 const RAVENCOIN = coininfo.ravencoin.main.toBitcoinJS();
+const { getRPC, methods } = require("@ravenrebels/ravencoin-rpc");
 
 const full = require("./mock/full.json").debug;
 const UTXOs = full.rvnUTXOs.concat(full.assetUTXOs);
 
 const txHex = full.rawUnsignedTransaction;
 const tx = bitcoin.Transaction.fromHex(txHex);
-const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
+
+const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN, UTXOs);
 txb.UTXOs = UTXOs;
 
-//Very ugly but it works, set UTXOs as global variable so we can use it from the forked bitcoinjs-lib
-global.UTXOs = UTXOs;
+function getUTXO(transactionId, index) {
+  return UTXOs.find((utxo) => {
+    return utxo.txid === transactionId && utxo.outputIndex === index;
+  });
+}
 for (let i = 0; i < tx.ins.length; i++) {
   const address = full.inputs[i].address;
   const keyPair = getKeyPairByAddress(address);
-  console.log(tx.ins[i].script.toString());
+  const utxo = getUTXO(full.inputs[i].txid, full.inputs[i].vout);
 
- /*
-  interface TxbSignArg {
-    prevOutScriptType: string;
-    vin: number;
-    keyPair: Signer;
-    redeemScript?: Buffer;
-    hashType?: number;
-    witnessValue?: number;
-    witnessScript?: Buffer; 
-*/
-  const transactionBuilderSignArgument = {
+  const signParams = {
     prevOutScriptType: "p2pkh",
     vin: i,
     keyPair,
+    UTXO: utxo,
   };
-  txb.sign(transactionBuilderSignArgument);
- // txb.sign(i, keyPair);
+  txb.sign(signParams);
 }
 
 const signedTxHex = txb.build().toHex();
 
-console.log(signedTxHex);
+const rpc = getRPC("anon", "anon", "https://rvn-rpc-mainnet.ting.finance/rpc");
+
+async function main() {
+  const decoded = await rpc(methods.decoderawtransaction, [signedTxHex]);
+  const fs = require("fs");
+
+  fs.writeFileSync(
+    "./mock/decodedSignedTransactionBitcoinjs.json",
+    JSON.stringify(decoded, null, 4)
+  );
+}
+
+main();
 //const signedTxHex = txb.build().toHex();
 // Broadcast this signed raw transaction
 //console.log(signedTxHex);
