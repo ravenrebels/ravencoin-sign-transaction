@@ -1,10 +1,10 @@
 {
   "name": "@ravenrebels/ravencoin-sign-transaction",
   "description": "Signs a Ravencoin transaction",
-  "version": "0.0.4",
-  "source":"index.ts",
+  "version": "0.1.0",
+  "source": "index.ts",
   "main": "dist/index.cjs",
-  "module":"dist/index.mjs",
+  "module": "dist/index.mjs",
   "scripts": {
     "build": "parcel build --no-content-hash",
     "postinstall": "node copyFile",
@@ -14,7 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/ravenrebels/ravencoin-sign-transaction.git"
   },
-  "keywords": ["ravencoin"],
+  "keywords": [
+    "ravencoin"
+  ],
   "author": "Raven Rebels - Dick Henrik Larsson",
   "license": "MIT",
   "bugs": {
@@ -26,6 +28,7 @@
     "coininfo": "^5.2.1"
   },
   "devDependencies": {
+    "@types/node": "^18.13.0",
     "parcel": "^2.8.3"
   }
 }

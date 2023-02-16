@@ -1,8 +1,6 @@
 const bitcoin = require("bitcoinjs-lib");
 const coininfo = require("coininfo");
 
-const RAVENCOIN = coininfo.ravencoin.main.toBitcoinJS();
-
 interface IUTXO {
   address: string;
   assetName: string;
@@ -14,10 +12,27 @@ interface IUTXO {
   value: number;
 }
 export function sign(
+  network: "rvn" | "rvn-test",
   rawTransactionHex: string,
   UTXOs: Array<IUTXO>,
   privateKeys: any
 ): string {
+  //Validation
+  const isRVN = network === "rvn";
+  const isRVNTEST = network === "rvn-test";
+
+  if (isRVN === false && isRVNTEST === false) {
+    throw new Error(
+      "Validation error, first argument network must be rvn or rvn-test"
+    );
+  }
+  const networkMapper = {
+    rvn: "main",
+    "rvn-test": "test",
+  };
+
+  const RAVENCOIN = coininfo.ravencoin[networkMapper[network]].toBitcoinJS();
+
   const tx = bitcoin.Transaction.fromHex(rawTransactionHex);
   const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
 
@@ -35,11 +50,11 @@ export function sign(
 
   for (let i = 0; i < tx.ins.length; i++) {
     const input = tx.ins[i];
-    console.log(input);
+
     const txId = Buffer.from(input.hash, "hex").reverse().toString("hex");
     const utxo = getUTXO(txId, input.index);
     if (!utxo) {
-      throw Error("Could not find UTXO for input "+ input);
+      throw Error("Could not find UTXO for input " + input);
     }
     const address = utxo.address;
     const keyPair = getKeyPairByAddress(address);
@@ -55,4 +70,6 @@ export function sign(
   const signedTxHex = txb.build().toHex();
   return signedTxHex;
 }
-
+export default {
+  sign,
+};

@@ -6,13 +6,21 @@ import {ravencoin as $hCgyA$ravencoin} from "coininfo";
 var $c3f6c693698dc7cd$require$Buffer = $hCgyA$Buffer;
 
 
-const $c3f6c693698dc7cd$var$RAVENCOIN = $hCgyA$ravencoin.main.toBitcoinJS();
-function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(rawTransactionHex, UTXOs, privateKeys) {
+function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
+    //Validation
+    const isRVN = network === "rvn";
+    const isRVNTEST = network === "rvn-test";
+    if (isRVN === false && isRVNTEST === false) throw new Error("Validation error, first argument network must be rvn or rvn-test");
+    const networkMapper = {
+        rvn: "main",
+        "rvn-test": "test"
+    };
+    const RAVENCOIN = $hCgyA$ravencoin[networkMapper[network]].toBitcoinJS();
     const tx = $hCgyA$Transaction.fromHex(rawTransactionHex);
-    const txb = $hCgyA$TransactionBuilder.fromTransaction(tx, $c3f6c693698dc7cd$var$RAVENCOIN);
+    const txb = $hCgyA$TransactionBuilder.fromTransaction(tx, RAVENCOIN);
     function getKeyPairByAddress(address) {
         const wif = privateKeys[address];
-        const keyPair = $hCgyA$ECPair.fromWIF(wif, $c3f6c693698dc7cd$var$RAVENCOIN);
+        const keyPair = $hCgyA$ECPair.fromWIF(wif, RAVENCOIN);
         return keyPair;
     }
     function getUTXO(transactionId, index) {
@@ -22,7 +30,6 @@ function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(rawTransactionHex, UTXOs, pri
     }
     for(let i = 0; i < tx.ins.length; i++){
         const input = tx.ins[i];
-        console.log(input);
         const txId = $c3f6c693698dc7cd$require$Buffer.from(input.hash, "hex").reverse().toString("hex");
         const utxo = getUTXO(txId, input.index);
         if (!utxo) throw Error("Could not find UTXO for input " + input);
@@ -39,7 +46,10 @@ function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(rawTransactionHex, UTXOs, pri
     const signedTxHex = txb.build().toHex();
     return signedTxHex;
 }
+var $c3f6c693698dc7cd$export$2e2bcd8739ae039 = {
+    sign: $c3f6c693698dc7cd$export$c5552dfdbc7cec71
+};
 
 
-export {$c3f6c693698dc7cd$export$c5552dfdbc7cec71 as sign};
+export {$c3f6c693698dc7cd$export$c5552dfdbc7cec71 as sign, $c3f6c693698dc7cd$export$2e2bcd8739ae039 as default};
 //# sourceMappingURL=index.mjs.map
