@@ -1,21 +1,40 @@
 import {Buffer as $hCgyA$Buffer} from "buffer";
 import {Transaction as $hCgyA$Transaction, TransactionBuilder as $hCgyA$TransactionBuilder, ECPair as $hCgyA$ECPair} from "bitcoinjs-lib";
-import {ravencoin as $hCgyA$ravencoin} from "coininfo";
+import {chains as $hCgyA$chains} from "@hyperbitjs/chains";
+
 
 
 var $c3f6c693698dc7cd$require$Buffer = $hCgyA$Buffer;
 
-
+function $c3f6c693698dc7cd$var$toBitcoinJS() {
+    return Object.assign({}, this, {
+        bech32: this.bech32,
+        bip32: {
+            public: (this.versions.bip32 || {}).public,
+            private: (this.versions.bip32 || {}).private
+        },
+        pubKeyHash: this.versions.public,
+        scriptHash: this.versions.scripthash,
+        wif: this.versions.private,
+        dustThreshold: null
+    });
+}
 function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
-    //Validation
-    const isRVN = network === "rvn";
-    const isRVNTEST = network === "rvn-test";
-    if (isRVN === false && isRVNTEST === false) throw new Error("Validation error, first argument network must be rvn or rvn-test");
     const networkMapper = {
-        rvn: "main",
-        "rvn-test": "test"
+        rvn: (0, $hCgyA$chains).rvn.main,
+        "rvn-test": (0, $hCgyA$chains).rvn.test,
+        evr: (0, $hCgyA$chains).evr.main,
+        "evr-test": (0, $hCgyA$chains).evr.test
     };
-    const RAVENCOIN = $hCgyA$ravencoin[networkMapper[network]].toBitcoinJS();
+    const coin = networkMapper[network];
+    if (!coin) throw new Error("Validation error, first argument network must be rvn, rvn-test, evr or evr-test");
+    //@ts-ignore
+    coin.toBitcoinJS = $c3f6c693698dc7cd$var$toBitcoinJS.bind(coin);
+    console.log("Sign, network", network);
+    console.log("Sign got chain", coin);
+    //@ts-ignore
+    const RAVENCOIN = coin.toBitcoinJS();
+    console.log("Sign chain toBitcoinJS", RAVENCOIN);
     const tx = $hCgyA$Transaction.fromHex(rawTransactionHex);
     const txb = $hCgyA$TransactionBuilder.fromTransaction(tx, RAVENCOIN);
     function getKeyPairByAddress(address) {
