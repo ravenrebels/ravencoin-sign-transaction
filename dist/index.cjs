@@ -41,11 +41,8 @@ function $80bd448eb6ea085b$export$c5552dfdbc7cec71(network, rawTransactionHex, U
     if (!coin) throw new Error("Validation error, first argument network must be rvn, rvn-test, evr or evr-test");
     //@ts-ignore
     coin.toBitcoinJS = $80bd448eb6ea085b$var$toBitcoinJS.bind(coin);
-    console.log("Sign, network", network);
-    console.log("Sign got chain", coin);
     //@ts-ignore
     const RAVENCOIN = coin.toBitcoinJS();
-    console.log("Sign chain toBitcoinJS", RAVENCOIN);
     const tx = $g5Y9E$bitcoinjslib.Transaction.fromHex(rawTransactionHex);
     const txb = $g5Y9E$bitcoinjslib.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
     function getKeyPairByAddress(address) {

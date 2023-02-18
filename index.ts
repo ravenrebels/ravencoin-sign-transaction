@@ -49,12 +49,8 @@ export function sign(
   //@ts-ignore
   coin.toBitcoinJS = toBitcoinJS.bind(coin);
 
-  console.log("Sign, network", network);
-  console.log("Sign got chain", coin);
-
   //@ts-ignore
   const RAVENCOIN = coin.toBitcoinJS();
-  console.log("Sign chain toBitcoinJS", RAVENCOIN);
 
   const tx = bitcoin.Transaction.fromHex(rawTransactionHex);
   const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
