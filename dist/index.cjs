@@ -17,19 +17,6 @@ $parcel$export(module.exports, "default", () => $80bd448eb6ea085b$export$2e2bcd8
 
 var $80bd448eb6ea085b$require$Buffer = $g5Y9E$buffer.Buffer;
 
-function $80bd448eb6ea085b$var$toBitcoinJS() {
-    return Object.assign({}, this, {
-        bech32: this.bech32,
-        bip32: {
-            public: (this.versions.bip32 || {}).public,
-            private: (this.versions.bip32 || {}).private
-        },
-        pubKeyHash: this.versions.public,
-        scriptHash: this.versions.scripthash,
-        wif: this.versions.private,
-        dustThreshold: null
-    });
-}
 function $80bd448eb6ea085b$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
     const networkMapper = {
         rvn: (0, $g5Y9E$hyperbitjschains.chains).rvn.main,
@@ -40,9 +27,7 @@ function $80bd448eb6ea085b$export$c5552dfdbc7cec71(network, rawTransactionHex, U
     const coin = networkMapper[network];
     if (!coin) throw new Error("Validation error, first argument network must be rvn, rvn-test, evr or evr-test");
     //@ts-ignore
-    coin.toBitcoinJS = $80bd448eb6ea085b$var$toBitcoinJS.bind(coin);
-    //@ts-ignore
-    const RAVENCOIN = coin.toBitcoinJS();
+    const RAVENCOIN = (0, $g5Y9E$hyperbitjschains.toBitcoinJS)(coin);
     const tx = $g5Y9E$bitcoinjslib.Transaction.fromHex(rawTransactionHex);
     const txb = $g5Y9E$bitcoinjslib.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
     function getKeyPairByAddress(address) {

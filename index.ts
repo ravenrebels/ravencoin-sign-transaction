@@ -1,5 +1,5 @@
 const bitcoin = require("bitcoinjs-lib");
-import { chains } from "@hyperbitjs/chains";
+import { chains, toBitcoinJS } from "@hyperbitjs/chains";
 
 interface IUTXO {
   address: string;
@@ -10,20 +10,6 @@ interface IUTXO {
   satoshis: number;
   height: number;
   value: number;
-}
-
-function toBitcoinJS() {
-  return Object.assign({}, this, {
-    bech32: this.bech32,
-    bip32: {
-      public: (this.versions.bip32 || {}).public,
-      private: (this.versions.bip32 || {}).private,
-    },
-    pubKeyHash: this.versions.public,
-    scriptHash: this.versions.scripthash,
-    wif: this.versions.private,
-    dustThreshold: null, // TODO
-  });
 }
 
 export function sign(
@@ -46,11 +32,9 @@ export function sign(
       "Validation error, first argument network must be rvn, rvn-test, evr or evr-test"
     );
   }
-  //@ts-ignore
-  coin.toBitcoinJS = toBitcoinJS.bind(coin);
 
   //@ts-ignore
-  const RAVENCOIN = coin.toBitcoinJS();
+  const RAVENCOIN = toBitcoinJS(coin);
 
   const tx = bitcoin.Transaction.fromHex(rawTransactionHex);
   const txb = bitcoin.TransactionBuilder.fromTransaction(tx, RAVENCOIN);
