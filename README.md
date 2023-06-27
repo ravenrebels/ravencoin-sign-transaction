@@ -12,10 +12,11 @@ Transaction Builder.
 
 ## How to use
 
-The sign method has three arguments
-1) The raw transaction (in hex)
-2) An array of UTXO objects to use
-3) Private keys. An object with "address" as key and "WIF" as value
+The sign method has four arguments
+1) The network "string", can be "rvn" | "rvn-test" | "evr" | "evr-test",
+2) The raw transaction (in hex)
+3) An array of UTXO objects to use
+4) Private keys. An object with "address" as key and "WIF" as value
 
 returns a signed transaction (hex), after that it is up to you to publish it on the network
 ```
@@ -50,7 +51,7 @@ const privateKeys = {
   RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn:
     "Kxj2xMvLbcXeGzuSrZLtpnZWzXnTXnhtuCQRQhKLjN7bSQXuakyh",
 };
-const signed = Signer.sign(raw, UTXOs, privateKeys);
+const signed = Signer.sign("rvn", raw, UTXOs, privateKeys);
 console.log(signed);
 
 
