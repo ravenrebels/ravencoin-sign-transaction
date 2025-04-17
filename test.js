@@ -1,11 +1,6 @@
 const Signer = require("./dist/index.cjs");
 
-/*
-export function sign(network: "rvn" | "rvn-test" | "evr" | "evr-test",
-rawTransactionHex: string,
- UTXOs: Array<IUTXO>, 
- privateKeys: any): string;
-*/
+ 
 test("Verify sign RVN transaction", () => {
   const testData = require("./mock/test_rvn_transaction.json");
   const network = "rvn-test";

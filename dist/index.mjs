@@ -1,12 +1,10 @@
-import {Buffer as $hCgyA$Buffer} from "buffer";
-import {Transaction as $hCgyA$Transaction, TransactionBuilder as $hCgyA$TransactionBuilder, ECPair as $hCgyA$ECPair} from "bitcoinjs-lib";
+import {Transaction as $hCgyA$Transaction, ECPair as $hCgyA$ECPair, script as $hCgyA$script} from "bitcoinjs-lib";
 import {chains as $hCgyA$chains, toBitcoinJS as $hCgyA$toBitcoinJS} from "@hyperbitjs/chains";
 
 
 
-var $c3f6c693698dc7cd$require$Buffer = $hCgyA$Buffer;
-
 function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
+    // Get bitcoinjs-lib-compatible network parameters
     const networkMapper = {
         rvn: (0, $hCgyA$chains).rvn.main,
         "rvn-test": (0, $hCgyA$chains).rvn.test,
@@ -14,38 +12,61 @@ function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(network, rawTransactionHex, U
         "evr-test": (0, $hCgyA$chains).evr.test
     };
     const coin = networkMapper[network];
-    if (!coin) throw new Error("Validation error, first argument network must be rvn, rvn-test, evr or evr-test");
-    //@ts-ignore
+    if (!coin) throw new Error("Invalid network specified");
+    // Convert to bitcoinjs-lib network format
+    // @ts-ignore because toBitcoinJS returns a compatible structure
     const RAVENCOIN = (0, $hCgyA$toBitcoinJS)(coin);
-    const tx = $hCgyA$Transaction.fromHex(rawTransactionHex);
-    const txb = $hCgyA$TransactionBuilder.fromTransaction(tx, RAVENCOIN);
+    // Parse the unsigned transaction
+    const unsignedTx = $hCgyA$Transaction.fromHex(rawTransactionHex);
+    const tx = new $hCgyA$Transaction();
+    tx.version = unsignedTx.version;
+    tx.locktime = unsignedTx.locktime;
+    // Helper to look up the correct private key by address
     function getKeyPairByAddress(address) {
         const wif = privateKeys[address];
-        const keyPair = $hCgyA$ECPair.fromWIF(wif, RAVENCOIN);
-        return keyPair;
+        if (!wif) throw new Error(`Missing private key for address: ${address}`);
+        return $hCgyA$ECPair.fromWIF(wif, RAVENCOIN);
     }
-    function getUTXO(transactionId, index) {
-        return UTXOs.find((utxo)=>{
-            return utxo.txid === transactionId && utxo.outputIndex === index;
-        });
+    // Helper to find the correct UTXO for an input
+    function getUTXO(txid, vout) {
+        return UTXOs.find((u)=>u.txid === txid && u.outputIndex === vout);
     }
+    // Add all inputs to the new transaction using the actual scriptPubKey from the UTXO
+    for(let i = 0; i < unsignedTx.ins.length; i++){
+        const input = unsignedTx.ins[i];
+        const txid = Buffer.from(input.hash).reverse().toString("hex");
+        const vout = input.index;
+        const utxo = getUTXO(txid, vout);
+        if (!utxo) throw new Error(`Missing UTXO for input ${txid}:${vout}`);
+        const script = Buffer.from(utxo.script, "hex");
+        // Add input with the correct scriptPubKey
+        tx.addInput(Buffer.from(input.hash), input.index, input.sequence, script);
+    }
+    // Copy all outputs from the unsigned transaction
+    for (const out of unsignedTx.outs)tx.addOutput(out.script, out.value);
+    // Sign each input manually
     for(let i = 0; i < tx.ins.length; i++){
         const input = tx.ins[i];
-        const txId = $c3f6c693698dc7cd$require$Buffer.from(input.hash, "hex").reverse().toString("hex");
-        const utxo = getUTXO(txId, input.index);
-        if (!utxo) throw Error("Could not find UTXO for input " + input);
-        const address = utxo.address;
-        const keyPair = getKeyPairByAddress(address);
-        const signParams = {
-            prevOutScriptType: "p2pkh",
-            vin: i,
-            keyPair: keyPair,
-            UTXO: utxo
-        };
-        txb.sign(signParams);
+        const txid = Buffer.from(input.hash).reverse().toString("hex");
+        const vout = input.index;
+        const utxo = getUTXO(txid, vout);
+        if (!utxo) throw new Error(`Missing UTXO for input ${txid}:${vout}`);
+        const keyPair = getKeyPairByAddress(utxo.address);
+        // Compute the sighash (message to be signed)
+        const sighash = tx.hashForSignature(i, Buffer.from(utxo.script, "hex"), $hCgyA$Transaction.SIGHASH_ALL);
+        // Sign the hash
+        const signature = $hCgyA$script.signature.encode(keyPair.sign(sighash), $hCgyA$Transaction.SIGHASH_ALL);
+        const pubKey = keyPair.publicKey;
+        // Build the unlocking script (scriptSig) manually: <signature> <pubKey>
+        const scriptSig = $hCgyA$script.compile([
+            signature,
+            pubKey
+        ]);
+        // Attach the scriptSig to the input
+        tx.setInputScript(i, scriptSig);
     }
-    const signedTxHex = txb.build().toHex();
-    return signedTxHex;
+    // Return the signed transaction as hex
+    return tx.toHex();
 }
 var $c3f6c693698dc7cd$export$2e2bcd8739ae039 = {
     sign: $c3f6c693698dc7cd$export$c5552dfdbc7cec71

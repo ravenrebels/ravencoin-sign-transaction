@@ -8,7 +8,6 @@
   "types": "dist/types.d.ts",
   "scripts": {
     "build": "parcel build --no-content-hash",
-    "postinstall": "node copyFile",
     "test": "jest"
   },
   "repository": {
