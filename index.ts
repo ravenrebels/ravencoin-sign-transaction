@@ -1,16 +1,17 @@
 const bitcoin = require("bitcoinjs-lib");
-import { chains, toBitcoinJS } from "@hyperbitjs/chains";
+
+import { rvn, evr, toBitcoinJS } from "@hyperbitjs/chains";
 
 // UTXO model for inputs to be signed
 interface IUTXO {
-  address: string;         // Address that holds the UTXO
-  assetName: string;       // Name of the asset 
-  txid: string;            // Transaction ID of the UTXO
-  outputIndex: number;     // Output index in the original transaction
-  script: string;          // Hex-encoded scriptPubKey (from the UTXO)
-  satoshis: number;        // Amount in satoshis
-  height?: number;         // Optional block height
-  value: number;           // Same as satoshis (can be used for clarity)
+  address: string; // Address that holds the UTXO
+  assetName: string; // Name of the asset
+  txid: string; // Transaction ID of the UTXO
+  outputIndex: number; // Output index in the original transaction
+  script: string; // Hex-encoded scriptPubKey (from the UTXO)
+  satoshis: number; // Amount in satoshis
+  height?: number; // Optional block height
+  value: number; // Same as satoshis (can be used for clarity)
 }
 
 /**
@@ -32,20 +33,21 @@ export function sign(
 ): string {
   // Get bitcoinjs-lib-compatible network parameters
   const networkMapper = {
-    rvn: chains.rvn.main,
-    "rvn-test": chains.rvn.test,
-    evr: chains.evr.main,
-    "evr-test": chains.evr.test,
+    rvn: rvn.mainnet,
+    "rvn-test": rvn.testnet,
+    evr: evr.mainnet,
+    "evr-test": evr.testnet,
   };
 
   const coin = networkMapper[network];
+
   if (!coin) {
     throw new Error("Invalid network specified");
   }
 
   // Convert to bitcoinjs-lib network format
   // @ts-ignore because toBitcoinJS returns a compatible structure
-  const RAVENCOIN = toBitcoinJS(coin);
+  const COIN = toBitcoinJS(coin);
 
   // Parse the unsigned transaction
   const unsignedTx = bitcoin.Transaction.fromHex(rawTransactionHex);
@@ -57,8 +59,14 @@ export function sign(
   // Helper to look up the correct private key by address
   function getKeyPairByAddress(address: string) {
     const wif = privateKeys[address];
-    if (!wif) throw new Error(`Missing private key for address: ${address}`);
-    return bitcoin.ECPair.fromWIF(wif, RAVENCOIN);
+    if (!wif) {
+      throw new Error(`Missing private key for address: ${address}`);
+    }
+    if (!COIN.messagePrefix) {
+      throw new Error(`Missing messagePrefix for coin ${COIN.name}`);
+    }
+    //@ts-ignore
+    return bitcoin.ECPair.fromWIF(wif, COIN);
   }
 
   // Helper to find the correct UTXO for an input

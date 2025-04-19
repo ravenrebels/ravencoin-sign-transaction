@@ -1,5 +1,5 @@
-var $g5Y9E$bitcoinjslib = require("bitcoinjs-lib");
 var $g5Y9E$hyperbitjschains = require("@hyperbitjs/chains");
+var $g5Y9E$bitcoinjslib = require("bitcoinjs-lib");
 
 
 function $parcel$defineInteropFlag(a) {
@@ -19,16 +19,16 @@ $parcel$export(module.exports, "default", () => $80bd448eb6ea085b$export$2e2bcd8
 function $80bd448eb6ea085b$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
     // Get bitcoinjs-lib-compatible network parameters
     const networkMapper = {
-        rvn: (0, $g5Y9E$hyperbitjschains.chains).rvn.main,
-        "rvn-test": (0, $g5Y9E$hyperbitjschains.chains).rvn.test,
-        evr: (0, $g5Y9E$hyperbitjschains.chains).evr.main,
-        "evr-test": (0, $g5Y9E$hyperbitjschains.chains).evr.test
+        rvn: (0, $g5Y9E$hyperbitjschains.rvn).mainnet,
+        "rvn-test": (0, $g5Y9E$hyperbitjschains.rvn).testnet,
+        evr: (0, $g5Y9E$hyperbitjschains.evr).mainnet,
+        "evr-test": (0, $g5Y9E$hyperbitjschains.evr).testnet
     };
     const coin = networkMapper[network];
     if (!coin) throw new Error("Invalid network specified");
     // Convert to bitcoinjs-lib network format
     // @ts-ignore because toBitcoinJS returns a compatible structure
-    const RAVENCOIN = (0, $g5Y9E$hyperbitjschains.toBitcoinJS)(coin);
+    const COIN = (0, $g5Y9E$hyperbitjschains.toBitcoinJS)(coin);
     // Parse the unsigned transaction
     const unsignedTx = $g5Y9E$bitcoinjslib.Transaction.fromHex(rawTransactionHex);
     const tx = new $g5Y9E$bitcoinjslib.Transaction();
@@ -38,7 +38,9 @@ function $80bd448eb6ea085b$export$c5552dfdbc7cec71(network, rawTransactionHex, U
     function getKeyPairByAddress(address) {
         const wif = privateKeys[address];
         if (!wif) throw new Error(`Missing private key for address: ${address}`);
-        return $g5Y9E$bitcoinjslib.ECPair.fromWIF(wif, RAVENCOIN);
+        if (!COIN.messagePrefix) throw new Error(`Missing messagePrefix for coin ${COIN.name}`);
+        //@ts-ignore
+        return $g5Y9E$bitcoinjslib.ECPair.fromWIF(wif, COIN);
     }
     // Helper to find the correct UTXO for an input
     function getUTXO(txid, vout) {
