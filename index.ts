@@ -1,10 +1,10 @@
 import * as bitcoin from "bitcoinjs-lib";
 import { ECPairFactory } from "ecpair";
-import * as tinysecp from "tiny-secp256k1";
+import ecc from "@bitcoinerlab/secp256k1";
 
 import { rvn, evr, toBitcoinJS, MainNet, TestNet } from "@hyperbitjs/chains";
 
-const ECPair = ECPairFactory(tinysecp);
+const ECPair = ECPairFactory(ecc);
 
 interface IUTXO {
   address: string;

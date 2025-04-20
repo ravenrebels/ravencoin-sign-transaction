@@ -1,13 +1,13 @@
 import {toBitcoinJS as $hCgyA$toBitcoinJS, rvn as $hCgyA$rvn, evr as $hCgyA$evr} from "@hyperbitjs/chains";
 import {Transaction as $hCgyA$Transaction, script as $hCgyA$script} from "bitcoinjs-lib";
 import {ECPairFactory as $hCgyA$ECPairFactory} from "ecpair";
-import * as $hCgyA$tinysecp256k1 from "tiny-secp256k1";
+import $hCgyA$bitcoinerlabsecp256k1 from "@bitcoinerlab/secp256k1";
 
 
 
 
 
-const $c3f6c693698dc7cd$var$ECPair = (0, $hCgyA$ECPairFactory)($hCgyA$tinysecp256k1);
+const $c3f6c693698dc7cd$var$ECPair = (0, $hCgyA$ECPairFactory)((0, $hCgyA$bitcoinerlabsecp256k1));
 function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
     const networkMapper = {
         rvn: (0, $hCgyA$toBitcoinJS)((0, $hCgyA$rvn).mainnet),
