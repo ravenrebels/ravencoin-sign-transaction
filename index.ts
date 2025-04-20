@@ -30,10 +30,8 @@ export function sign(
     "evr-test": toBitcoinJS(evr.testnet as TestNet),
   };
 
-  // Ensure all network objects include a dummy bech32 string to pass schema validation
-  Object.values(networkMapper).forEach((net) => (net.bech32 = ""));
-
   const COIN = networkMapper[network];
+  COIN.bech32 = COIN.bech32 || ""; //ECPair requires bech32 to not be undefined
   if (!COIN) throw new Error("Invalid network specified");
 
   const COIN_NETWORK = COIN as bitcoin.Network;

@@ -15,9 +15,8 @@ function $c3f6c693698dc7cd$export$c5552dfdbc7cec71(network, rawTransactionHex, U
         evr: (0, $hCgyA$toBitcoinJS)((0, $hCgyA$evr).mainnet),
         "evr-test": (0, $hCgyA$toBitcoinJS)((0, $hCgyA$evr).testnet)
     };
-    // Ensure all network objects include a dummy bech32 string to pass schema validation
-    Object.values(networkMapper).forEach((net)=>net.bech32 = "");
     const COIN = networkMapper[network];
+    COIN.bech32 = COIN.bech32 || ""; //ECPair requires bech32 to not be undefined
     if (!COIN) throw new Error("Invalid network specified");
     const COIN_NETWORK = COIN;
     const unsignedTx = $hCgyA$Transaction.fromHex(rawTransactionHex);
