@@ -25,7 +25,9 @@
   "homepage": "https://github.com/ravenrebels/ravencoin-sign-transaction#readme",
   "dependencies": {
     "@hyperbitjs/chains": "1.10.2",
-    "bitcoinjs-lib": "^5.2.0"
+    "bitcoinjs-lib": "^6.1.7",
+    "ecpair": "^3.0.0",
+    "tiny-secp256k1": "^2.2.3"
   },
   "devDependencies": {
     "@parcel/packager-ts": "^2.14.4",
