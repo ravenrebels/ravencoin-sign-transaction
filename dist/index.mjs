@@ -1,7 +1,7 @@
-import {toBitcoinJS as $hCgyA$toBitcoinJS, rvn as $hCgyA$rvn, evr as $hCgyA$evr} from "@hyperbitjs/chains";
 import {Transaction as $hCgyA$Transaction, script as $hCgyA$script} from "bitcoinjs-lib";
 import {ECPairFactory as $hCgyA$ECPairFactory} from "ecpair";
 import $hCgyA$bitcoinerlabsecp256k1 from "@bitcoinerlab/secp256k1";
+import {toBitcoinJS as $hCgyA$toBitcoinJS, rvn as $hCgyA$rvn, evr as $hCgyA$evr} from "@hyperbitjs/chains";
 
 
 

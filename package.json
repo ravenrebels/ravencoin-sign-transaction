@@ -30,11 +30,11 @@
     "ecpair": "3.0.0"
   },
   "devDependencies": {
-    "@parcel/packager-ts": "^2.14.4",
-    "@parcel/transformer-typescript-types": "^2.14.4",
+    "@parcel/packager-ts": "^2.15.1",
+    "@parcel/transformer-typescript-types": "^2.15.1",
     "@types/node": "^20.17.30",
     "jest": "^29.7.0",
-    "parcel": "2.14.4",
+    "parcel": "^2.15.1",
     "typescript": "5.8.3"
   }
 }

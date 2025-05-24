@@ -1,7 +1,7 @@
-var $g5Y9E$hyperbitjschains = require("@hyperbitjs/chains");
 var $g5Y9E$bitcoinjslib = require("bitcoinjs-lib");
 var $g5Y9E$ecpair = require("ecpair");
 var $g5Y9E$bitcoinerlabsecp256k1 = require("@bitcoinerlab/secp256k1");
+var $g5Y9E$hyperbitjschains = require("@hyperbitjs/chains");
 
 
 function $parcel$interopDefault(a) {
