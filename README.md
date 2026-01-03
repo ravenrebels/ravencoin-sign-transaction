@@ -1,5 +1,8 @@
 # Ravencoin & Evrmore Sign Transaction
 
+![npm version](https://img.shields.io/npm/v/@ravenrebels/ravencoin-sign-transaction)
+![license](https://img.shields.io/npm/l/@ravenrebels/ravencoin-sign-transaction)
+
 Signs Ravencoin (RVN) and Evrmore (EVR) transactions in pure JavaScript.
 
 ## Features
