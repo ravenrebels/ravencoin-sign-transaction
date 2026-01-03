@@ -1,25 +1,37 @@
-# ravencoin-sign-transaction
+# Ravencoin & Evrmore Sign Transaction
 
-Signs a Ravencoin transaction
+Signs Ravencoin (RVN) and Evrmore (EVR) transactions in pure JavaScript.
 
-The sole purpose of this project is to enable us to
-"Sign RVN or asset transfer transactions in pure JavaScript"
- 
+## Features
+- Support for **Ravencoin** and **Evrmore** (both Mainnet and Testnet).
+- Support for **Asset transfers**.
+- Pure JavaScript/TypeScript (works in Node.js and browser).
+- Lightweight and focused.
+
+## Installation
+
+```bash
+npm install @ravenrebels/ravencoin-sign-transaction
+```
 
 ## How to use
 
-The sign method has four arguments
-1) The network "string", can be "rvn" | "rvn-test" | "evr" | "evr-test",
-2) The raw transaction (in hex)
-3) An array of UTXO objects to use
-4) Private keys. An object with "address" as key and "WIF" as value
+The `sign` method has four arguments:
+1. **network**: `rvn` | `rvn-test` | `evr` | `evr-test`
+2. **rawTransactionHex**: The raw unsigned transaction (in hex).
+3. **UTXOs**: An array of UTXO objects to use.
+4. **privateKeys**: An object with `address` as key and `WIF` as value.
 
-returns a signed transaction (hex), after that it is up to you to publish it on the network
-```
+Returns a signed transaction (hex). After that, it is up to you to publish it on the network.
+
+### Example
+
+```javascript
 import Signer from "@ravenrebels/ravencoin-sign-transaction";
 
 const raw =
   "0200000002fe6cfe20184b592849231eea8167e3de073b6ec1b8218c2ef36838a4e07dd11c0200000000ffffffff28c32b825b14251708ea39c0ac706bd3d933778d7838d01b678b045a48e219950000000000ffffffff0200000000000000003a76a91416014dfb02a07417cbf8c0366ee5ae0a29d5878f88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075000e2707000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000";
+
 const UTXOs = [
   {
     address: "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi",
@@ -28,7 +40,6 @@ const UTXOs = [
     outputIndex: 2,
     script: "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
     satoshis: 122000000,
-    height: 2670673,
   },
   {
     address: "RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn",
@@ -38,18 +49,16 @@ const UTXOs = [
     script:
       "76a914c1536f46fa2fa04be210406529be283c1c85e4ce88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075",
     satoshis: 100000000,
-    height: 2670669,
   },
 ];
+
 const privateKeys = {
   RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi:
     "L2GD7txjmdKSTy7mBq2FowZusjdWP679ttWSRfj4eLBu2usTWMV9",
   RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn:
     "Kxj2xMvLbcXeGzuSrZLtpnZWzXnTXnhtuCQRQhKLjN7bSQXuakyh",
 };
+
 const signed = Signer.sign("rvn", raw, UTXOs, privateKeys);
 console.log(signed);
-
-
 ```
-
