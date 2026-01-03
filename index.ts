@@ -36,10 +36,8 @@ export function sign(
 
   const COIN_NETWORK = COIN as bitcoin.Network;
 
-  const unsignedTx = bitcoin.Transaction.fromHex(rawTransactionHex);
-  const tx = new bitcoin.Transaction();
-  tx.version = unsignedTx.version;
-  tx.locktime = unsignedTx.locktime;
+  const tx = bitcoin.Transaction.fromHex(rawTransactionHex);
+  if (!tx) throw new Error("Invalid transaction hex");
 
   function getKeyPairByAddress(address: string) {
     const wif = privateKeys[address];
@@ -55,24 +53,6 @@ export function sign(
 
   function getUTXO(txid: string, vout: number): IUTXO | undefined {
     return UTXOs.find((u) => u.txid === txid && u.outputIndex === vout);
-  }
-
-  // Add inputs
-  for (let i = 0; i < unsignedTx.ins.length; i++) {
-    const input = unsignedTx.ins[i];
-    const txid = Buffer.from(input.hash).reverse().toString("hex");
-    const vout = input.index;
-
-    const utxo = getUTXO(txid, vout);
-    if (!utxo) throw new Error(`Missing UTXO for input ${txid}:${vout}`);
-
-    const script = Buffer.from(utxo.script, "hex");
-    tx.addInput(Buffer.from(input.hash), input.index, input.sequence, script);
-  }
-
-  // Add outputs
-  for (const out of unsignedTx.outs) {
-    tx.addOutput(out.script, out.value);
   }
 
   // Sign each input

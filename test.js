@@ -8,9 +8,9 @@ test("Verify RVN sign transaction", () => {
   const rawUnsignedTransaction = testData.debug.rawUnsignedTransaction;
 
   const expectedResult = testData.debug.signedTransaction;
-  const asdf = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
+  const signedTransaction = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
 
-  expect(asdf).toBe(expectedResult);
+  expect(signedTransaction).toBe(expectedResult);
 });
 test("Verify RVN sign ASSET transaction", () => {
   const testData = require("./mock/test_asset_transaction.json");
@@ -21,9 +21,9 @@ test("Verify RVN sign ASSET transaction", () => {
   const rawUnsignedTransaction = testData.debug.rawUnsignedTransaction;
 
   const expectedResult = testData.debug.signedTransaction;
-  const asdf = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
+  const signedTransaction = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
 
-  expect(asdf).toBe(expectedResult);
+  expect(signedTransaction).toBe(expectedResult);
 });
 test("Verify EVR sign transaction", () => {
   const testData = require("./mock/test_evr_transaction.json");
@@ -34,9 +34,9 @@ test("Verify EVR sign transaction", () => {
   const rawUnsignedTransaction = testData.debug.rawUnsignedTransaction;
 
   const expectedResult = testData.debug.signedTransaction;
-  const asdf = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
+  const signedTransaction = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
 
-  expect(asdf).toBe(expectedResult);
+  expect(signedTransaction).toBe(expectedResult);
 });
 
 test("Verify EVR sign ASSET transaction", () => {
@@ -48,7 +48,7 @@ test("Verify EVR sign ASSET transaction", () => {
   const rawUnsignedTransaction = testData.debug.rawUnsignedTransaction;
 
   const expectedResult = testData.debug.signedTransaction;
-  const asdf = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
+  const signedTransaction = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
 
-  expect(asdf).toBe(expectedResult);
+  expect(signedTransaction).toBe(expectedResult);
 });
