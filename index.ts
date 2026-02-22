@@ -1,6 +1,6 @@
 import * as bitcoin from "bitcoinjs-lib";
 import { ECPairFactory } from "ecpair";
-import ecc from "@bitcoinerlab/secp256k1";
+import * as ecc from "@bitcoinerlab/secp256k1";
 
 import { rvn, evr, toBitcoinJS, MainNet, TestNet } from "@hyperbitjs/chains";
 

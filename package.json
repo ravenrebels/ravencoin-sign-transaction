@@ -35,14 +35,17 @@
     "@bitcoinerlab/secp256k1": "1.2.0",
     "@hyperbitjs/chains": "1.10.2",
     "bitcoinjs-lib": "6.1.7",
-    "ecpair": "3.0.0"
+    "ecpair": "^3.0.1"
   },
   "devDependencies": {
     "@parcel/packager-ts": "^2.16.3",
     "@parcel/transformer-typescript-types": "^2.16.3",
-    "@types/node": "^20.17.30",
-    "jest": "^29.7.0",
-    "parcel": "2.16.3",
-    "typescript": "5.8.3"
+    "@types/node": "^24.10.13",
+    "jest": "^30.2.0",
+    "parcel": "^2.16.4",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1"
   }
 }
